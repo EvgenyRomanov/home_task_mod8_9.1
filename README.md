@@ -41,7 +41,7 @@
 
 
 ### Результаты:  
-....
+[](https://github.com/EvgenyRomanov/home_task_mod8_9.1/blob/main/game_book.ipynb)
 
 :arrow_up:[к оглавлению](.README.md#Оглавление)
 
