@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def random_predict(number: int = 1) -> int:
+def predict_num(number: int = 1) -> int:
     """Угадываем число.
 
     Args:
@@ -19,7 +19,7 @@ def random_predict(number: int = 1) -> int:
     
     while True:
         count += 1
-        # С каждой итерацией будет сокращать дипазон поиска в 2 раза.   
+        # С каждой итерацией будем сокращать дипазон поиска в 2 раза.   
         mean = (start_num + end_num) // 2  
         
         if end_num - start_num > 3 :
@@ -31,6 +31,7 @@ def random_predict(number: int = 1) -> int:
             elif predict_number > number:
                 end_num = predict_number
             elif number == predict_number:
+                # Выходим из цикла, если угадали.
                 break  
         else:
             # Когда максимально сократили диапазон до 3 чисел,
@@ -48,11 +49,11 @@ def random_predict(number: int = 1) -> int:
     return count
 
 
-def score_game(random_predict) -> int:
+def score_game(predict_num) -> int:
     """Среднее кол-во попыток угадать число при 1000 повторений. 
 
     Args:
-        random_predict (function): функция, которая угадывает число.
+        predict_num (function): функция, которая угадывает число.
 
     Returns:
         int: среднее количество попыток.
@@ -66,7 +67,7 @@ def score_game(random_predict) -> int:
     random_array = np.random.randint(1, 101, size=(1000))  
 
     for number in random_array:
-        count_ls.append(random_predict(number))
+        count_ls.append(predict_num(number))
 
     score = int(np.mean(count_ls))
     print(f"Ваш алгоритм угадывает число в среднем за {score} попыток.")
@@ -75,4 +76,4 @@ def score_game(random_predict) -> int:
 
 
 if __name__ == "__main__":
-    score_game(random_predict)
+    score_game(predict_num)
