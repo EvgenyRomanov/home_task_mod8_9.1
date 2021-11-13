@@ -12,9 +12,9 @@ def random_predict(number: int = 1) -> int:
     """
     
     count = 0
-    # Начальное значение диапазона
+    # Начальное значение диапазона.
     start_num = 1
-    # Конечное значение диапазона
+    # Конечное значение диапазона.
     end_num = 100
     
     while True:
@@ -23,8 +23,9 @@ def random_predict(number: int = 1) -> int:
         mean = (start_num + end_num) // 2  
         
         if end_num - start_num > 3 :
-            # Предполагаемое число
-            predict_number = mean                           
+            # Предполагаемое число.
+            predict_number = mean 
+                                      
             if predict_number < number:
                 start_num = predict_number
             elif predict_number > number:
@@ -33,7 +34,7 @@ def random_predict(number: int = 1) -> int:
                 break  
         else:
             # Когда максимально сократили диапазон до 3 чисел,
-            # у нас остается всего два варианта
+            # у нас остается всего два варианта.
             predict_number = mean
             
             if predict_number > number:
@@ -48,7 +49,7 @@ def random_predict(number: int = 1) -> int:
 
 
 def score_game(random_predict) -> int:
-    """Среднее кол-во попыток угадать число за 1000 подходов. 
+    """Среднее кол-во попыток угадать число при 1000 повторений. 
 
     Args:
         random_predict (function): функция, которая угадывает число.
@@ -68,7 +69,7 @@ def score_game(random_predict) -> int:
         count_ls.append(random_predict(number))
 
     score = int(np.mean(count_ls))
-    print(f"Ваш алгоритм угадывает число в среднем за:{score} попыток.")
+    print(f"Ваш алгоритм угадывает число в среднем за {score} попыток.")
     
     return score
 
